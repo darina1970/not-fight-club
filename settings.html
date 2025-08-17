@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Not Fight Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="home.html">MAIN</a>
+                </li>
+                <li>
+                    <a href="character.html">CHARACTER</a>
+                </li>
+                <li>
+                    <a href="settings.html">SETTINGS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="settings-wrapper">
+        <h1>Settings</h1>
+        <div class="setting-item">
+            <label for="playerName">Change your name:</label>
+            <input type="text" id="playerName" placeholder="Enter your new name">
+            <button id="saveName">Save</button>
+        </div>
+
+        <div class="setting-item">
+            <label for="volumeControl">Music Volume:</label>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.01">
+            <button id="saveVolume">Save</button>
+        </div>
+
+        <button id="backBtn">Back</button>
+    </div>
+
+    <audio id="bgMusic" src="assets/audio/TMNT - TMNT.mp3" loop></audio>
+
+    <script src="settings.js"></script>
+</body>
+</html>
