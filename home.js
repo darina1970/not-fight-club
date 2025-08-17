@@ -9,7 +9,13 @@ document.getElementById(
 ).textContent = `WELCOME TO THE NOT FIGHT CLUB, ${playerName}!`;
 
 const music = document.getElementById("bgMusic");
-music.volume = 0.3;
+let musicVolume = localStorage.getItem("musicVolume");
+if (musicVolume) {
+  music.volume = musicVolume;
+} else {
+  music.volume = 0.3;
+}
+
 music.play().catch(() => {
   console.log("Autoplay blocked. User interaction required.");
 });
@@ -21,7 +27,6 @@ document.getElementById("fightBtn").addEventListener("click", () => {
 });
 
 document.getElementById("chooseBtn").addEventListener("click", () => {
-  alert("В разработке...");
   window.location.href = "character.html";
 });
 
