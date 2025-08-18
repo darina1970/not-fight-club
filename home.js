@@ -20,7 +20,6 @@ music.play().catch(() => {
   console.log("Autoplay blocked. User interaction required.");
 });
 document.getElementById("fightBtn").addEventListener("click", () => {
-  alert("В разработке...");
   localStorage.setItem("playerCharacter", Math.floor(Math.random() * 3) + 1);
   localStorage.setItem("enemyCharacter", Math.floor(Math.random() * 2) + 1);
   window.location.href = "fight.html";

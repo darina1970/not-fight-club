@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight - Not Fight Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="home.html">MAIN</a>
+                </li>
+                <li>
+                    <a href="character.html">CHARACTER</a>
+                </li>
+                <li>
+                    <a href="settings.html">SETTINGS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="fight-wrapper">
+        <div class="fight-container">
+            <div class="fighter player">
+                <h2 id="playerName">Player</h2>
+                <img id="playerImg" src="" alt="Player" />
+                <div class="health-bar">
+                    <div class="health" id="playerHealth"></div>
+                </div>
+            </div>
+            <div class="battle-panel">
+                <p class="instruction">Please pick 1 attack zone and 2 defence zones</p>
+
+                <div class="zones">
+                    <div class="zones-attack">
+                        <h3>Attack Zones</h3>
+                        <div class="zone-list" id="attackZones"></div>
+                    </div>
+                    <div class="zones-defence">
+                        <h3>Defence Zones</h3>
+                        <div class="zone-list" id="defenceZones"></div>
+                    </div>
+                </div>
+                <button id="fightBtn" disabled>Fight</button>
+            </div>
+
+            <div class="fighter enemy">
+                <h2 id="enemyName">Enemy</h2>
+                <img id="enemyImg" src="" alt="Enemy" />
+                <div class="health-bar">
+                <div class="health" id="enemyHealth"></div>
+                </div>
+            </div>
+        </div>
+        <div class="battle-log" id="battleLog"></div>
+    </div>
+    
+</body>
+</html>
