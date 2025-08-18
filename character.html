@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="home.html">MAIN</a>
+                </li>
+                <li>
+                    <a href="character.html">CHARACTER</a>
+                </li>
+                <li>
+                    <a href="settings.html">SETTINGS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="character-wrapper">
-        <h1 class="character-title">Choose your character</h1>
-        <div class="gallery" id="gallery"></div>
+        <h1 class="choose-title">Choose your character</h1>
+        <div class="gallery-wrapper">
+            <div class="gallery" id="gallery"></div>
+        </div>
+        
         <div class="card-info" id="cardInfo">
             <p><strong>Name:</strong><span id="infoName"></span></p>
             <p><strong>Weapon:</strong><span id="infoWeapon"></span></p>
@@ -18,7 +36,58 @@
         <button id="nextBtn" disabled>Next</button>
     </div>
 
-    <script src="character.js"></script>
+    <audio id="bgMusic" src="assets/audio/TMNT-1994-1996-открывающая-песня-сезон-9-10.mp3" loop></audio>
+
+    <script type="module" src="character.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Character - NOT FIGHT CLUB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="home.html">MAIN</a>
+                </li>
+                <li>
+                    <a href="character.html">CHARACTER</a>
+                </li>
+                <li>
+                    <a href="settings.html">SETTINGS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="character-wrapper">
+        <h1 class="choose-title">Choose your character</h1>
+        <div class="swiper-container-wrapper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="swiperWrapper"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="card-info" id="cardInfo">
+            <p><strong>Name:</strong><span id="infoName"></span></p>
+            <p><strong>Weapon:</strong><span id="infoWeapon"></span></p>
+            <p><strong>Strength:</strong><span id="infoStrength"></span></p>
+        </div>
+        <button id="nextBtn" disabled>Next</button>
+    </div>
+
+    <audio id="bgMusic" src="assets/audio/TMNT-1994-1996-открывающая-песня-сезон-9-10.mp3" loop></audio>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="character.js"></script>
 </body>
 </html>
-

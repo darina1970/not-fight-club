@@ -1,3 +1,4 @@
+import { playSound } from "./js/sounds.js";
 const characters = [
   {
     id: 1,
@@ -22,6 +23,20 @@ const characters = [
   },
   {
     id: 4,
+    name: "Michelangelo",
+    weapon: "Nunchaku",
+    strength: 80,
+    img: "./assets/images/leonardo.jpg",
+  },
+  {
+    id: 5,
+    name: "Michelangelo",
+    weapon: "Nunchaku",
+    strength: 80,
+    img: "./assets/images/leonardo.jpg",
+  },
+  {
+    id: 6,
     name: "Michelangelo",
     weapon: "Nunchaku",
     strength: 80,
@@ -53,47 +68,76 @@ const enemies = [
   },
 ];
 
-const gallery = document.getElementById("gallery");
-const nextBtn = document.getElementById("nextBtn");
-const characterTitle = document.querySelector(".character-title");
-
+const bgMusic = document.getElementById("bgMusic");
+const chooseTitle = document.querySelector(".choose-title");
 const infoName = document.getElementById("infoName");
 const infoWeapon = document.getElementById("infoWeapon");
 const infoStrength = document.getElementById("infoStrength");
+const nextBtn = document.getElementById("nextBtn");
+
+let musicVolume = localStorage.getItem("musicVolume");
+bgMusic.volume = musicVolume ? musicVolume : 0.3;
+bgMusic.play().catch(() => console.log("Autoplay blocked"));
 
 let stage = "character";
 let selectedId = null;
 
-function renderGallery(list) {
-  gallery.innerHTML = "";
-  list.forEach((item) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.dataset.id = item.id;
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
-    card.innerHTML = `
+function renderSlides(list) {
+  swiper.removeAllSlides();
+
+  list.forEach((item) => {
+    const slide = document.createElement("div");
+    slide.classList.add("swiper-slide");
+
+    slide.innerHTML = `
             <img src="${item.img}" alt="${item.name}">
             <div class="tooltip">Click me</div>
         `;
 
-    card.addEventListener("mouseenter", () => {
+    slide.addEventListener("mouseenter", () => {
       infoName.textContent = item.name;
       infoWeapon.textContent = item.weapon;
       infoStrength.textContent = item.strength;
     });
 
-    card.addEventListener("click", () => {
-      document
-        .querySelectorAll(".card")
-        .forEach((c) => c.classList.remove("selected"));
-      card.classList.add("selected");
+    slide.addEventListener("click", () => {
+      swiper.slides.forEach((s) => s.classList.remove("selected"));
+      slide.classList.add("selected");
       selectedId = item.id;
       nextBtn.classList.add("active");
       nextBtn.disabled = false;
+      playSound("select");
     });
 
-    gallery.appendChild(card);
+    swiper.appendSlide(slide);
   });
 }
 
-renderGallery(characters);
+renderSlides(characters);
+
+nextBtn.addEventListener("click", () => {
+  if (!selectedId) return;
+
+  if (stage === "character") {
+    localStorage.setItem("playerCharacter", selectedId);
+    stage = "enemy";
+    chooseTitle.textContent = "Choose your opponent";
+    nextBtn.textContent = "Fight";
+    nextBtn.classList.remove("active");
+    nextBtn.disabled = true;
+    renderSlides(enemies);
+  } else {
+    localStorage.setItem("enemyCharacter", selectedId);
+    selectedId = null;
+    window.location.href = "fight.html";
+  }
+});
