@@ -25,14 +25,15 @@
     <div class="fight-wrapper">
         <div class="fight-container">
             <div class="fighter player">
-                <h2 id="playerName">Player</h2>
-                <img id="playerImg" src="" alt="Player" />
+                <h2 id="playerName"></h2>
+                <img id="playerImg" />
                 <div class="health-bar">
                     <div class="health" id="playerHealth"></div>
+                    <span class="health-text" id="playerHealthText"></span>
                 </div>
             </div>
             <div class="battle-panel">
-                <p class="instruction">Please pick 1 attack zone and 2 defence zones</p>
+                <p class="instruction"></p>
 
                 <div class="zones">
                     <div class="zones-attack">
@@ -48,15 +49,17 @@
             </div>
 
             <div class="fighter enemy">
-                <h2 id="enemyName">Enemy</h2>
-                <img id="enemyImg" src="" alt="Enemy" />
+                <h2 id="enemyName"></h2>
+                <img id="enemyImg" />
                 <div class="health-bar">
-                <div class="health" id="enemyHealth"></div>
+                    <div class="health" id="enemyHealth"></div>
+                    <span class="health-text" id="enemyHealthText"></span>
                 </div>
             </div>
         </div>
         <div class="battle-log" id="battleLog"></div>
     </div>
     
+    <script type="module" src="fight.js"></script>
 </body>
 </html>
