@@ -50,15 +50,15 @@ export const characters = [
   },
   {
     id: 5,
-    name: "Michelangelo",
-    weapon: "Nunchaku",
-    strength: 82,
-    img: "./assets/images/leonardo.jpg",
+    name: "Master Splinter",
+    weapon: "Super Ninja Power",
+    strength: 100,
+    img: "./assets/images/splinter.jpg",
 
-    health: 115,
-    damage: 22,
-    critChance: 0.22,
-    critMultiplier: 1.5,
+    health: 120,
+    damage: 25,
+    critChance: 0.23,
+    critMultiplier: 1.6,
   },
 ];
 
@@ -98,5 +98,29 @@ export const enemies = [
     damage: 22,
     critChance: 0.12,
     critMultiplier: 1.35,
+  },
+  {
+    id: 104,
+    name: "Crang",
+    weapon: "Technologica battle suit",
+    strength: 90,
+    img: "./assets/images/crang.jpg",
+
+    health: 95,
+    damage: 10,
+    critChance: 0.2,
+    critMultiplier: 1.2,
+  },
+  {
+    id: 105,
+    name: "Baxter Stockman",
+    weapon: "Claws and insect drones",
+    strength: 80,
+    img: "./assets/images/baxter.jpg",
+
+    health: 100,
+    damage: 8,
+    critChance: 0.1,
+    critMultiplier: 1.1,
   },
 ];

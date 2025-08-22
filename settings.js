@@ -3,7 +3,7 @@ const saveNameBtn = document.getElementById("saveName");
 const saveVolumeBtn = document.getElementById("saveVolume");
 const volumeControl = document.getElementById("volumeControl");
 const bgMusic = document.getElementById("bgMusic");
-const backBtn = document.getElementById("backBtn");
+const backBtn = document.getElementById("settingsBackBtn");
 
 let playerName = localStorage.getItem("playerName") || "";
 playerNameInput.value = playerName;

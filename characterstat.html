@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="home.html">MAIN</a>
+                </li>
+                <li>
+                    <a href="characterstat.html">YOUR STATISTICS</a>
+                </li>
+                <li>
+                    <a href="settings.html">SETTINGS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="character-stats">
+        <div class="character-photo">
+            <img id="characterImg" src="" alt="Your character">
+        </div>
+        <div class="character-info">
+            <h2><strong class="orange">Player's Name: </strong><span id="playerName"></span></h2>
+            <h3><strong class="orange">Current character: </strong><span id="characterName"></span></h3>
+            <p><strong class="orange">Weapon: </strong><span id="characterWeapon"></span></p>
+            <p><strong class="orange">Strength: </strong><span id="characterStrength"></span></p>
+        </div>
+        <div class="player-stats">
+            <h3 class="orange"><span id="playerNameStats"></span>'s statistics</h3>
+            <div id="statsContainer"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="characterModal">
+        <div class="modal-content">
+            <div class="character-wrapper">
+                <h1 class="choose-title">Choose your character</h1>
+                <div class="swiper-container-wrapper">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper" id="swiperWrapper"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div class="card-info" id="cardInfo">
+                    <p><strong>Name:</strong><span id="infoName"></span></p>
+                    <p><strong>Weapon:</strong><span id="infoWeapon"></span></p>
+                    <p><strong>Strength:</strong><span id="infoStrength"></span></p>
+                </div>
+                <button id="nextBtn" disabled>Choose</button>
+            </div>
+            <button id="closeModal">✖</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="characterstat.js"></script>
+</body>
+</html>

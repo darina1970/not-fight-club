@@ -29,6 +29,10 @@ document.getElementById("chooseBtn").addEventListener("click", () => {
   window.location.href = "character.html";
 });
 
+document.getElementById("statsBtn").addEventListener("click", () => {
+  window.location.href = "characterstat.html";
+});
+
 document.getElementById("settingsBtn").addEventListener("click", () => {
   window.location.href = "settings.html";
 });

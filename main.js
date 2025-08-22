@@ -8,13 +8,14 @@ document.getElementById("startBtn").addEventListener("click", () => {
 
   localStorage.setItem("playerName", name);
 
-  localStorage.setItem(
-    "playerStats",
-    JSON.stringify({
-      wins: 0,
-      losses: 0,
-    })
-  );
+  // localStorage.setItem(
+  //   "battleStats",
+  //   JSON.stringify({
+  //     wins: 0,
+  //     losses: 0,
+  //     draws: 0,
+  //   })
+  // );
 
   window.location.href = "home.html";
 });
