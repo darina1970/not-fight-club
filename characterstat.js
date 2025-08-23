@@ -1,5 +1,17 @@
 import { characters } from "./data/characters.js";
 
+const music = document.getElementById("bgMusic");
+let musicVolume = localStorage.getItem("musicVolume");
+if (musicVolume) {
+  music.volume = musicVolume;
+} else {
+  music.volume = 0.3;
+}
+
+music.play().catch(() => {
+  console.log("Autoplay blocked. User interaction required.");
+});
+
 const playerName = localStorage.getItem("playerName") || "Player";
 let selectedCharacter = JSON.parse(localStorage.getItem("playerCharacter"));
 const stats = JSON.parse(localStorage.getItem("battleStats")) || null;
