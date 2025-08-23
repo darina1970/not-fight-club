@@ -1,6 +1,6 @@
 export const sounds = {
-  select: new Audio("../assets/audio/cowabunga.mp3"),
-  fight: new Audio("../assets/audio/cowabunga.mp3"),
+  select: new Audio("./assets/audio/cowabunga.mp3"),
+  fight: new Audio("./assets/audio/cowabunga.mp3"),
 };
 
 export function playSound(name) {
