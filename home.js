@@ -1,3 +1,26 @@
+import { characters, enemies } from "./data/characters.js";
+
+function getRandomItem(arr) {
+  const index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+}
+
+document.getElementById("fightBtn").addEventListener("click", () => {
+  let player = JSON.parse(localStorage.getItem("playerCharacter"));
+  if (!player) {
+    player = getRandomItem(characters);
+    localStorage.setItem("playerCharacter", JSON.stringify(player));
+  }
+
+  let enemy = JSON.parse(localStorage.getItem("enemyCharacter"));
+  if (!enemy) {
+    enemy = getRandomItem(enemies);
+    localStorage.setItem("enemyCharacter", JSON.stringify(enemy));
+  }
+
+  window.location.href = "fight.html";
+});
+
 const playerName = localStorage.getItem("playerName");
 
 if (!playerName) {
@@ -18,11 +41,6 @@ if (musicVolume) {
 
 music.play().catch(() => {
   console.log("Autoplay blocked. User interaction required.");
-});
-document.getElementById("fightBtn").addEventListener("click", () => {
-  localStorage.setItem("playerCharacter", Math.floor(Math.random() * 3) + 1);
-  localStorage.setItem("enemyCharacter", Math.floor(Math.random() * 2) + 1);
-  window.location.href = "fight.html";
 });
 
 document.getElementById("chooseBtn").addEventListener("click", () => {
