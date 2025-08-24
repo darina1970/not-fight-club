@@ -207,11 +207,13 @@ function checkBattleEnd() {
     if (player.currentHealth <= 0 && enemy.currentHealth <= 0) {
       addLog(`<span style="color:gray;font-weight:bold;">It's a draw!</span>`);
       saveResult("draw");
+      playSound("draw");
     } else if (player.currentHealth <= 0) {
       addLog(
         `<span style="color:red;font-weight:bold;">${enemy.name} wins!</span>`
       );
       saveResult("loss");
+      playSound("lose");
     } else {
       addLog(
         `<span style="color:green;font-weight:bold;">${player.name} wins!</span>`
