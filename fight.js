@@ -217,6 +217,7 @@ function checkBattleEnd() {
         `<span style="color:green;font-weight:bold;">${player.name} wins!</span>`
       );
       saveResult("win");
+      playSound("win");
     }
 
     const restartBtn = document.createElement("button");
@@ -242,7 +243,6 @@ function saveResult(result) {
 }
 
 function startNewBattle() {
-  // Сбрасываем здоровье
   player.currentHealth = player.health;
   enemy.currentHealth = enemy.health;
 
