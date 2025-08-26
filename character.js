@@ -103,6 +103,7 @@ nextBtn.addEventListener("click", () => {
 
   if (stage === "character") {
     localStorage.setItem("playerCharacter", JSON.stringify(selectedCharacter));
+    localStorage.removeItem("currentBattle");
 
     stage = "enemy";
     chooseTitle.textContent = "Choose your opponent";
@@ -120,6 +121,7 @@ nextBtn.addEventListener("click", () => {
     backBtn.style.display = "inline-block";
   } else {
     localStorage.setItem("enemyCharacter", JSON.stringify(selectedCharacter));
+    localStorage.removeItem("currentBattle");
     selectedCharacter = null;
     window.location.href = "fight.html";
   }

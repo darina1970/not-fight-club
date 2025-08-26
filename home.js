@@ -18,6 +18,8 @@ document.getElementById("fightBtn").addEventListener("click", () => {
     localStorage.setItem("enemyCharacter", JSON.stringify(enemy));
   }
 
+  localStorage.removeItem("currentBattle");
+
   window.location.href = "fight.html";
 });
 

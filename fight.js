@@ -54,6 +54,7 @@ zones.forEach((zone) => {
       .forEach((z) => z.classList.remove("selected"));
     attackBtn.classList.add("selected");
     checkReady();
+    saveBattleState();
   });
   attackZones.appendChild(attackBtn);
 
@@ -71,6 +72,7 @@ zones.forEach((zone) => {
       }
     }
     checkReady();
+    saveBattleState();
   });
   defenceZones.appendChild(defBtn);
 });
@@ -175,6 +177,7 @@ function doFight() {
   // }
 
   checkBattleEnd();
+  saveBattleState();
 }
 
 function getRandomZones(count) {
@@ -227,6 +230,8 @@ function checkBattleEnd() {
     restartBtn.classList.add("restart-btn");
     restartBtn.addEventListener("click", startNewBattle);
     logEl.prepend(restartBtn);
+
+    saveBattleState();
   }
 }
 
@@ -266,4 +271,52 @@ function startNewBattle() {
   addLog(
     `<span style="color:orange;font-weight:bold;">New battle started!</span>`
   );
+  localStorage.removeItem("currentBattle");
+  saveBattleState();
 }
+
+function saveBattleState() {
+  const state = {
+    player,
+    enemy,
+    log: logEl.innerHTML,
+    selectedAttack,
+    selectedDefence,
+    fightDisabled: fightBtn.disabled,
+  };
+  localStorage.setItem("currentBattle", JSON.stringify(state));
+}
+
+function loadBattleState() {
+  const saved = JSON.parse(localStorage.getItem("currentBattle"));
+  if (saved) {
+    Object.assign(player, saved.player);
+    Object.assign(enemy, saved.enemy);
+
+    logEl.innerHTML = saved.log || "";
+
+    selectedAttack = saved.selectedAttack;
+    selectedDefence = saved.selectedDefence || [];
+
+    updateHealthBars();
+
+    fightBtn.disabled = saved.fightDisabled;
+    if (!saved.fightDisabled) fightBtn.classList.add("active");
+
+    if (selectedAttack) {
+      document.querySelectorAll("#attackZones .zone").forEach((z) => {
+        if (z.textContent === selectedAttack) z.classList.add("selected");
+      });
+    }
+    if (selectedDefence.length) {
+      document.querySelectorAll("#defenceZones .zone").forEach((z) => {
+        if (selectedDefence.includes(z.textContent))
+          z.classList.add("selected");
+      });
+    }
+  }
+}
+
+updateHealthBars();
+instructionEl.textContent = `${playerName}, please pick 1 attack zone and 2 defence zones`;
+loadBattleState();
