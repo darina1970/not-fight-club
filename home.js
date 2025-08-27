@@ -12,11 +12,14 @@ document.getElementById("fightBtn").addEventListener("click", () => {
     localStorage.setItem("playerCharacter", JSON.stringify(player));
   }
 
-  let enemy = JSON.parse(localStorage.getItem("enemyCharacter"));
-  if (!enemy) {
-    enemy = getRandomItem(enemies);
-    localStorage.setItem("enemyCharacter", JSON.stringify(enemy));
-  }
+  const enemy = getRandomItem(enemies);
+  localStorage.setItem("enemyCharacter", JSON.stringify(enemy));
+
+  // let enemy = JSON.parse(localStorage.getItem("enemyCharacter"));
+  // if (!enemy) {
+  //   enemy = getRandomItem(enemies);
+  //   localStorage.setItem("enemyCharacter", JSON.stringify(enemy));
+  // }
 
   localStorage.removeItem("currentBattle");
 
